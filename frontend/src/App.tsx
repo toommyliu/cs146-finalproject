@@ -1,8 +1,5 @@
-import { Button } from "@/components/ui/button";
+import LocationList from "./components/location-list";
 
 export default function App() {
-  return <div>
-      <Button>hello world</Button>
-      <img src="/campus_map.jpeg" alt="campus map" width={600} height={300}/>
-  </div>
+  return <LocationList />;
 }
