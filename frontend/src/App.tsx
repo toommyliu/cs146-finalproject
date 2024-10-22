@@ -101,11 +101,14 @@ export default function App() {
     ) {
       // Add a location to the queue
       const location = LOCATIONS[source.index];
-      const newQueue = Array.from(queue);
-      newQueue.splice(destination.index, 0, {
-        ...location,
-        uniqueId: `${location.id}-${Date.now()}`,
-      });
+      const newQueue = [
+        ...queue.slice(0, destination.index),
+        {
+          ...location,
+          uniqueId: `${location.id}-${Date.now()}`,
+        },
+        ...queue.slice(destination.index),
+      ];
       setQueue(newQueue);
     } else if (
       source.droppableId === "priority-queue" &&
